@@ -39,3 +39,14 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question
+
+class CalculoNumerico(models.Model):
+    tema = models.CharField(max_length=200)
+    pregunta = models.CharField(max_length=500)
+    formula = models.CharField(max_length=500)
+    respuesta = models.CharField(max_length=500)
+    hint = models.CharField(max_length=500)
+    imagen = models.ImageField(upload_to='images/')
+
+    def _str_(self):
+        return str(self.tema)

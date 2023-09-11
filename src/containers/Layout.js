@@ -6,7 +6,10 @@ import * as actions from "../store/actions/auth";
 
 const { Header, Content, Footer } = Layout;
 
+
+
 class CustomLayout extends React.Component {
+
   render() {
     return (
       <Layout className="layout">
@@ -20,7 +23,7 @@ class CustomLayout extends React.Component {
           >
             {this.props.isAuthenticated ? (
               <Menu.Item key="2" onClick={this.props.logout}>
-                Logout
+                <Link to="/login">Logout</Link>
               </Menu.Item>
             ) : (
               <Menu.Item key="2">
@@ -30,6 +33,7 @@ class CustomLayout extends React.Component {
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>
+        {this.props.isAuthenticated ? (
           <Breadcrumb style={{ margin: "16px 0" }}>
             <Breadcrumb.Item>
               <Link to="/">Home</Link>
@@ -45,6 +49,7 @@ class CustomLayout extends React.Component {
               </Breadcrumb.Item>
             ) : null}
           </Breadcrumb>
+          ): null}
           <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
             {this.props.children}
           </div>
